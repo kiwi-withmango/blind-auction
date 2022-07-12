@@ -1,0 +1,23 @@
+# code to find winners of auction
+bids = {}
+def addbid():
+    # add bidder and bids to dict
+    correct = False
+    while not correct:
+        bidder = input("Please put the bidder's name:\n")
+        bidderbid = int(input("What's the bidder's bid?\n"))
+        # check if bid is correct
+        right = input(f'is {bidder} and {bidderbid} correct? yes or no\n')
+        if right == 'y' or right == 'Y' or right == "YES" or right =='yes':
+            correct = True
+    bids[bidder] = bidderbid
+# see if there are other bids
+more = True
+while more:
+    addbid()
+    ismore = input('Is there another bid? yes or no \n')
+    if ismore == 'n':
+        more = False
+# find and declare winner
+winner = max(bids)
+print(f'Congrats! {winner} your bid was {bids[winner]}.')
